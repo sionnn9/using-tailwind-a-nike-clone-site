@@ -7,10 +7,12 @@ import SpecialOffer from "./sections/specialOffer";
 import Subscribe from "./sections/subscribe";
 import SuperQuality from "./sections/superQuality";
 import Nav from "./components/nav";
+import Sidebar from "./components/sidebar";
 
 const App = () => (
-  <main className="relative">
+  <main className={"relative"}>
     <Nav />
+    <Sidebar />
     <section className="xl:padding-l wide:padding-r padding-b">
       <Hero />
     </section>
