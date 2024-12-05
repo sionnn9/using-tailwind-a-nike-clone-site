@@ -4,7 +4,7 @@ import { hamburger } from "../assets/icons";
 import { navLinks } from "../constants";
 
 const nav = () => {
-  const [openHamburger, setOpenHamburger] = useState("hidden max-lg:block");
+  const [openHamburger, setOpenHamburger] = useState("hidden max-lg:block ");
   const [icons, setIcons] = useState([
     "Home",
     "About Us",
@@ -17,18 +17,18 @@ const nav = () => {
     setExpand(!expand);
     if (expand) {
       setOpenHamburger(
-        "bg-slate-gray w-full h-screen flex justify-end items-baseline"
+        "bg-slate-gray sm:w-[350px] w-[290px] sm:h-[300px] h-[300px] ease-in-out duration-500 flex justify-end items-baseline p-1 text-white "
       );
       setIcons(["Home", "About Us", "Products", "contact Us"]);
     } else {
-      setOpenHamburger("hidden max-lg:block");
+      setOpenHamburger("hidden max-lg:block  ease-out duration-700");
       setIcons[("", "", "", "")];
     }
   };
 
   return (
     <header className="padding-x py-8 absolute z-10 w-full">
-      <nav className="flex justify-between items-center max-container">
+      <nav className="flex justify-between items-center duration-700 max-container">
         <a href="/">
           <img
             src={headerLogo}
@@ -52,8 +52,18 @@ const nav = () => {
           ))}
         </ul>
       </nav>
-      <div className="flex justify-end items-end -translate-y-8">
+      <div className="flex justify-end items-end   -translate-y-8">
         <div className={`${openHamburger}`}>
+          <span
+            className={
+              expand
+                ? `hidden`
+                : ` text-white font-semibold flex justify-center items-center`
+            }
+          >
+            {" "}
+            {icons[0]}
+          </span>
           <img
             src={hamburger}
             alt="hamburger"
