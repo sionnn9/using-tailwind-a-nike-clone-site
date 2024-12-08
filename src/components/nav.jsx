@@ -17,7 +17,7 @@ const nav = () => {
     setExpand(!expand);
     if (expand) {
       setOpenHamburger(
-        "bg-slate-gray sm:w-[350px] w-[290px] sm:h-[300px] h-[300px] ease-in-out duration-500 flex justify-end items-baseline p-1 text-white "
+        "bg-[#d44b44] sm:w-[200px] w-[180px] sm:h-[210px] h-[190px] ease-in-out duration-500 flex  justify-end items-baseline p-1 text-white "
       );
       setIcons(["Home", "About Us", "Products", "contact Us"]);
     } else {
@@ -53,24 +53,34 @@ const nav = () => {
         </ul>
       </nav>
       <div className="flex justify-end items-end   -translate-y-8">
-        <div className={`${openHamburger}`}>
-          <span
+        <div className={`${openHamburger} `}>
+          <div
             className={
               expand
                 ? `hidden`
-                : ` text-white font-semibold flex justify-center items-center`
+                : ` text-white font-semibold flex-col justify-start w-full  items-center`
             }
           >
-            {" "}
-            {icons[0]}
-          </span>
-          <img
-            src={hamburger}
-            alt="hamburger"
-            height={25}
-            width={25}
-            onClick={sidebar}
-          />
+            <ul className="list-none p-0">
+              {icons.map((icon) => (
+                <ul
+                  key={icon}
+                  className=" sm:pt-5 pt-4 px-4  flex justify-between text-lg  hover:text-black font-semibold"
+                >
+                  {icon}
+                </ul>
+              ))}
+            </ul>
+          </div>
+          <div className="h-8 w-8    relative flex justify-end items-baseline">
+            <img
+              src={hamburger}
+              alt="hamburger"
+              height={25}
+              width={25}
+              onClick={sidebar}
+            />
+          </div>
         </div>
       </div>
     </header>
